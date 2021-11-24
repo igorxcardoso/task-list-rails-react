@@ -1,8 +1,15 @@
-import Recat from 'react';
+import React from 'react';
+import Task from './Task';
 
-const Task = ({tasks}) => {
-    console.log({tasks})
-    return <h1>Tasks</h1>;
-}
+const Tasks = ({ myTasks }) => {
+    // debugger
+    return (
+        <>
+            {myTasks.map((currentTask) => (     // Está passando cada elemento de myTasks para o componente Task
+                <Task taskComponent={currentTask} />
+            ))}
+        </>
+    );
+};
 
-export default Task;
+export default Tasks;

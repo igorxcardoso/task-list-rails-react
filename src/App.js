@@ -7,7 +7,7 @@ const App = () => {
   // let message = "Ola!"
   const [tasks, setTask] = useState([
     {
-      id: '1',
+      id: 1,
       title: 'Estudar',
       completed: false
     },
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <div className="container">
-        < Task tasks={tasks} />
+        < Task myTasks={tasks} />
       </div>
     </>
   );
