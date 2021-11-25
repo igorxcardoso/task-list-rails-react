@@ -1,10 +1,17 @@
 import React from "react";
+import {CgClose, CgInfo} from "react-icons/cg";
+import {useHistory} from "react-router-dom"; // Usado para navegar entre páginas
 
 import "./Task.css";
-
-import {CgClose, CgInfo} from "react-icons/cg";
+import TaskDetails from "./TaskDetails";
 
 const Task = ({ currentTask, handleTaskClick, handleTaskDelettion }) => {
+    const history = useHistory();
+
+    const handleTaskDetailsClick = () => {
+        history.push(`/${currentTask.title}`)
+    }
+
     return ( 
         <div 
          className="task-container" 
@@ -26,7 +33,7 @@ const Task = ({ currentTask, handleTaskClick, handleTaskDelettion }) => {
                 </button>
                 <button 
                  className="see-task-details-button" 
-                //  onClick={}
+                 onClick={handleTaskDetailsClick}
                 >
                     <CgInfo />
                 </button>

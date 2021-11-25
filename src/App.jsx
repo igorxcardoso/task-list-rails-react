@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {v4 as uuidv4} from "uuid"
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route} from "react-router-dom";
 
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
+import TaskDetails from "./components/TaskDetails";
 
 import "./App.css"
 
@@ -27,7 +28,7 @@ const App = () => {
     const newTasks = tasks.map( t => {
       if(t.id === taskId) {
         return {
-          ... t,
+          ...t,
           completed: !t.completed
         }
       }
@@ -38,7 +39,7 @@ const App = () => {
 
   const handleTaskAddition = (taskTitle) => {
     const newTasks = [
-      ... tasks,
+      ...tasks,
       {
         title: taskTitle,
         id: uuidv4(),
@@ -72,7 +73,7 @@ const App = () => {
             )
           }}/>
 
-          <Route />
+          <Route path="/:taskTitle" exact component={TaskDetails}/>
   
       </div>
     </BrowserRouter>
