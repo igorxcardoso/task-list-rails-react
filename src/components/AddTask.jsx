@@ -12,8 +12,10 @@ const AddTask = ({ handleTaskAddition }) => {
     }
 
     const handleAddTaskClick = () => { // Vai add a task
-        handleTaskAddition(inputData);
-        setInputData(""); // Vai limpar o input
+        if (inputData != "") {  // Verifica se o input está vazio
+            handleTaskAddition(inputData);
+            setInputData(""); // Vai limpar o input
+        }
     }
 
     return (
