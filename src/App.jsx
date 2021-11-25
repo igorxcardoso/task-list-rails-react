@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import {v4 as uuidv4} from "uuid"
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
+import Header from "./components/Header";
+
 import "./App.css"
-import {v4 as uuidv4} from "uuid"
 
 const App = () => {
   // let message = "Ola!"S
@@ -46,22 +50,32 @@ const App = () => {
 
   const handleTaskDelettion = (taskId) => {
     const newTasks = tasks.filter(task => task.id !== taskId)
-    
+    // Vai pecorrer a lista e vai tirar a task que o id foi passado
     setTask(newTasks);
   }
 
   return (
-    <>
+    <BrowserRouter>
       <div className="container">
-        < AddTask handleTaskAddition={handleTaskAddition} />
-        
-        < Tasks 
-          myTasks={tasks} 
-          handleTaskClick={handleTaskClick} 
-          handleTaskDelettion={handleTaskDelettion}
-        />
+        <Header />
+
+          <Route exact path = "/" render={() => {
+            return (
+              <>
+                < AddTask handleTaskAddition={handleTaskAddition} />
+                < Tasks 
+                myTasks={tasks} 
+                handleTaskClick={handleTaskClick} 
+                handleTaskDelettion={handleTaskDelettion}
+                />
+              </>
+            )
+          }}/>
+
+          <Route />
+  
       </div>
-    </>
+    </BrowserRouter>
   );
 };
 
