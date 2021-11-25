@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-const Tasks = ({ myTasks, handleTaskClick }) => {
+const Tasks = ({ myTasks, handleTaskClick, handleTaskDelettion }) => {
     // debugger
     return (
         <>
@@ -9,6 +9,7 @@ const Tasks = ({ myTasks, handleTaskClick }) => {
                 <Task 
                     currentTask={currentTask} 
                     handleTaskClick={handleTaskClick}
+                    handleTaskDelettion={handleTaskDelettion}
                 />
             ))}
         </>
