@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {v4 as uuidv4} from "uuid"
 import { BrowserRouter, Route} from "react-router-dom";
+import axios from "axios";
 
 import Tasks from "./components/Tasks"
 import AddTask from "./components/AddTask";
@@ -23,6 +24,19 @@ const App = () => {
       completed: true
     }
   ]);
+
+  // O código será executado sempre que as varíaveis que foram passas mudar
+  useEffect(() => {
+    const fetchTask = async () => {
+      const response = await axios.get(
+        "https://jsonplaceholder.cypress.io/todos?_limit=10"
+      );
+
+      console.log(response);
+    };
+
+    fetchTask();
+  }, [tasks]);
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map( t => {
