@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     const fetchTask = async () => {
       const { data } = await axios.get(
-        "https://jsonplaceholder.cypress.io/todos?_limit=10"
+        "http://127.0.0.1:3001/tasks"
       );
 
       // console.log(data);
