@@ -10,39 +10,7 @@ import TaskDetails from "./components/TaskDetails";
 
 import "./App.css"
 
-// ### Por Classe ###
-// class App extends React.Component {
-//   constructor() {
-//     super();
-
-//     this.state = {
-//       message: "Hello World"
-//     }
-//   }
-
-//   componentDidMount() {
-//     console.log("foi")
-//   }
-
-//   hendleMessageChangeClick() {
-//     this.setState({message: 'Helloooo!'})
-//   }
-
-//   render() {
-//     return (
-//       <>
-//           <h1>{this.state.message}</h1>
-//           <button onClick={this.hendleMessageChangeClick.bind(this)}>Mudar mensagem!</button>
-//       </>
-//     );
-//   }
-// }
-
-// export default App;
-
-
 const App = () => {
-  // let message = "Ola!"S
   const [tasks, setTask] = useState([
     {
       id: 1,
