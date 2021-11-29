@@ -10,6 +10,37 @@ import TaskDetails from "./components/TaskDetails";
 
 import "./App.css"
 
+// ### Por Classe ###
+// class App extends React.Component {
+//   constructor() {
+//     super();
+
+//     this.state = {
+//       message: "Hello World"
+//     }
+//   }
+
+//   componentDidMount() {
+//     console.log("foi")
+//   }
+
+//   hendleMessageChangeClick() {
+//     this.setState({message: 'Helloooo!'})
+//   }
+
+//   render() {
+//     return (
+//       <>
+//           <h1>{this.state.message}</h1>
+//           <button onClick={this.hendleMessageChangeClick.bind(this)}>Mudar mensagem!</button>
+//       </>
+//     );
+//   }
+// }
+
+// export default App;
+
+
 const App = () => {
   // let message = "Ola!"S
   const [tasks, setTask] = useState([
@@ -28,11 +59,12 @@ const App = () => {
   // O código será executado sempre que as varíaveis que foram passas mudar
   useEffect(() => {
     const fetchTask = async () => {
-      const response = await axios.get(
+      const { data } = await axios.get(
         "https://jsonplaceholder.cypress.io/todos?_limit=10"
       );
 
-      console.log(response);
+      // console.log(data);
+      setTask(data)
     };
 
     fetchTask();
